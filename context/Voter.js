@@ -67,7 +67,7 @@ export const VotingProvider = ({ children }) => {
   };
 
   // ===========================================================
-  //CONNECT WELATE
+  //CONNECT WALLET
   const connectWallet = async () => {
     if (!window.ethereum) return alert("Please install MetaMask");
 
@@ -239,6 +239,29 @@ export const VotingProvider = ({ children }) => {
     router.push("/");
   };
 
+  const remove_Candidate = async (address) => {
+    try {
+      if (!address) throw new Error("Address is missing");
+
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
+      const contract = fetchContract(signer);
+
+      const removedTx = await contract.removeCandidate(address);
+      await removedTx.wait();
+
+
+
+      router.push("/"); // Redirect after successful removal
+    } catch (error) {
+      console.error("Error removing candidate:", error.message);
+      // Handle error: Display an error message to the user or log it for debugging
+    }
+  }
+
+
   const getNewCandidate = async () => {
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
@@ -273,6 +296,7 @@ export const VotingProvider = ({ children }) => {
         createVoter,
         remove_Voter,
         setCandidate,
+        remove_Candidate,
         getNewCandidate,
         giveVote,
         pushCandidate,

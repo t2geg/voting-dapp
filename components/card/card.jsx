@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 
 import Style from "../card/card.module.css";
 import image from "../../candidate.png";
+import Button from "../Button/Button"
+import { VotingContext } from "../../context/Voter";
 
 const card = ({ candidateArray, giveVote }) => {
+  const { remove_Candidate } = useContext(VotingContext);
+
   return (
     <div className={Style.card}>
       {candidateArray.map((el, i) => (
@@ -33,6 +37,14 @@ const card = ({ candidateArray, giveVote }) => {
               Give Vote
             </button>
           </div>
+
+          <div className={Style.card_button}>
+            <Button
+              btnName="Remove"
+              handleClick={() => remove_Candidate(el[6])}
+            />
+          </div>
+
         </div>
       ))}
     </div>

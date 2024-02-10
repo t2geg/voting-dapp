@@ -68,6 +68,7 @@ contract Create {
     );
 
     event VoterRemoved(address indexed voterAddress);
+    event CandidateRemoved(address indexed candidateAddress);
 
 
     ////////////VOTERS////////////////////////
@@ -114,6 +115,34 @@ contract Create {
             candidate.ipfs
         );
     }
+
+    function removeCandidate(address _address) public {
+    require(
+        votingOrganizer == msg.sender,
+        "You have no right to remove this voter"
+    );
+
+
+    _candidateId.decrement();
+
+    // Deleting the candidate
+    delete candidates[_address];
+
+    // Removing the candidate's address from the votersAddress array
+    for (uint256 i = 0; i < candidateAddress.length; i++) {
+        if (candidateAddress[i] == _address) {
+            // Replace the removed address with the last address in the array
+            candidateAddress[i] = candidateAddress[candidateAddress.length - 1];
+            // Remove the last element from the array
+            candidateAddress.pop();
+            break;
+        }
+    }
+
+    // Emitting an event for the removal
+    emit CandidateRemoved(_address);
+}
+
 
     function getCandidate() public view returns (address[] memory) {
         return candidateAddress;
