@@ -1,9 +1,9 @@
-require('dotenv').config()
+
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
-    domains: ["https://voting-app.infura-ipfs.io"],
+    domains: [process.env.NEXT_PUBLIC_SUBDOMAIN],
   },
 };
 

@@ -11,13 +11,13 @@ import { VotingAddress, VotingAddressABI } from "./constants";
 
 // const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
-const projectId = "2TvG3h28x3kSDelYnBk13YXyo3L";
-const projectSecretKey = "739b6d9fb68860314c19f31381ceaaf7";
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+const projectSecretKey = process.env.NEXT_PUBLIC_SECRET_KEY;
 const auth = `Basic ${Buffer.from(`${projectId}:${projectSecretKey}`).toString(
   "base64"
 )}`;
 
-const subdomain = 'https://voting-app.infura-ipfs.io';
+const subdomain = process.env.NEXT_PUBLIC_SUBDOMAIN;
 
 const client = ipfsHttpClient({
   host: "infura-ipfs.io",
