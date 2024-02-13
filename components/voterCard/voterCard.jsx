@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Image from "next/image";
 
 import Style from "../card/card.module.css";
@@ -10,7 +10,21 @@ import { VotingContext } from "../../context/Voter";
 
 const voterCard = ({ voterArray }) => {
 
-  const { remove_Voter } = useContext(VotingContext);
+  const { remove_Voter, currentAccount, checkIfWalletIsConnected } = useContext(VotingContext);
+
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, [])
+
+  const validate = (e, currentAccount) => {
+    console.log(currentAccount, typeof (currentAccount));
+    if (currentAccount.toLowerCase() === "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266") {
+      remove_Voter(e);
+    } else {
+      window.alert("You are not allowed to remove voter");
+    }
+  }
+
 
   return (
     <div className={Style.card}>
@@ -37,7 +51,7 @@ const voterCard = ({ voterArray }) => {
             <div className={Style.Button}>
               <Button
                 btnName="Remove"
-                handleClick={() => remove_Voter(el[3])}
+                handleClick={() => validate(el[3], currentAccount)}
               />
             </div>
 

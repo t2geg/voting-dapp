@@ -36,6 +36,7 @@ export const VotingContext = React.createContext();
 
 export const VotingProvider = ({ children }) => {
   const router = useRouter();
+  const orgAccount = "";
   const [currentAccount, setCurrentAccount] = useState("");
   const [candidateLength, setCandidateLength] = useState("");
   const pushCandidate = [];
@@ -76,6 +77,7 @@ export const VotingProvider = ({ children }) => {
     });
 
     setCurrentAccount(accounts[0]);
+
     getAllVoterData();
     getNewCandidate();
   };
