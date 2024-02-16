@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 
+
 /** @type import('hardhat/config').HardhatUserConfig */
+
 
 module.exports = {
   solidity: "0.8.9",
@@ -8,14 +10,12 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    // kovan: {
-    //   url: `https://kovan.infura.io/v3/6547946c388047d5add5efb5a670288f` || "",
-    //   accounts:
-    //     `41ee81c00829b2fe236879eec5d09ba67792a5555459525e9097491b582d9ce1` !==
-    //     undefined
-    //       ? [`41ee81c00829b2fe236879eec5d09ba67792a5555459525e9097491b582d9ce1`]
-    //       : [],
-    // },
+    polygon_mumbai: {
+      url: `https://polygon-mumbai.g.alchemy.com/v2/49-nVazla2ToI-VYm_lzRFmVA2krCPmY`,
+      accounts: [
+        `0x${"8432bc1773da058640ec9325b05f6485ea655ea2774837ce98a8f6e68f0bed88"}`,
+      ],
+    },
   },
- 
+
 };
