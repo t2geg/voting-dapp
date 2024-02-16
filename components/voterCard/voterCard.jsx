@@ -6,6 +6,7 @@ import Button from "../Button/Button"
 import image from "../../candidate.png";
 import voterCardStyle from "./voterCard.module.css";
 import { VotingContext } from "../../context/Voter";
+import { organiserAddress } from "../../context/constants";
 
 
 const voterCard = ({ voterArray }) => {
@@ -17,8 +18,7 @@ const voterCard = ({ voterArray }) => {
   }, [])
 
   const validate = (e, currentAccount) => {
-    console.log(currentAccount, typeof (currentAccount));
-    if (currentAccount.toLowerCase() === "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266") {
+    if (currentAccount === organiserAddress) {
       remove_Voter(e);
     } else {
       window.alert("You are not allowed to remove voter");

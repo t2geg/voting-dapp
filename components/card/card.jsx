@@ -5,6 +5,7 @@ import Style from "../card/card.module.css";
 import image from "../../candidate.png";
 import Button from "../Button/Button"
 import { VotingContext } from "../../context/Voter";
+import { organiserAddress } from "../../context/constants";
 
 const card = ({ candidateArray, giveVote }) => {
   const { currentAccount, remove_Candidate, checkIfWalletIsConnected } = useContext(VotingContext);
@@ -14,8 +15,7 @@ const card = ({ candidateArray, giveVote }) => {
   }, [])
 
   const validate = (e, currentAccount) => {
-    console.log(currentAccount, typeof (currentAccount));
-    if (currentAccount.toLowerCase() === "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266") {
+    if (currentAccount === organiserAddress) {
       remove_Candidate(e);
     } else {
       window.alert("You are not allowed to remove voter");
