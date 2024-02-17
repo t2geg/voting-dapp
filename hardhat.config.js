@@ -3,6 +3,11 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
+//POLYGON_MUMBAI_URL
+//METAMASK_ACCOUNT
+
+const URL = vars.get("POLYGON_MUMBAI_URL", "Error Fetching url");
+const account_secret = vars.get("METAMASK_ACCOUNT", "Error Fetching Account");
 
 module.exports = {
   solidity: "0.8.9",
@@ -11,9 +16,9 @@ module.exports = {
       chainId: 1337,
     },
     polygon_mumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/49-nVazla2ToI-VYm_lzRFmVA2krCPmY`,
+      url: URL,
       accounts: [
-        `0x${"8432bc1773da058640ec9325b05f6485ea655ea2774837ce98a8f6e68f0bed88"}`,
+        `0x${account_secret}`,
       ],
     },
   },
