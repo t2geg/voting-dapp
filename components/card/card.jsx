@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Style from "../card/card.module.css";
-import Button from "../Button/Button"
+import RemoveButton from "../RemoveButton/RemoveButton";
 import { VotingContext } from "../../context/Voter";
 import { organiserAddress } from "../../context/constants";
 
@@ -45,8 +45,8 @@ const card = ({ candidateArray, giveVote }) => {
             </button>
           </div>
 
-          <div className={Style.card_button}>
-            <Button
+          <div className={Style.card_remove_button}>
+            <RemoveButton
               btnName="Remove"
               handleClick={() => validate(el[6], currentAccount)}
             />

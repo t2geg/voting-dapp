@@ -1,6 +1,4 @@
-
-
-.card{
+.card {
     width: 100%;
 
     display: grid;
@@ -8,17 +6,17 @@
     gap: 2rem;
 }
 
-.card_box{
+.card_box {
     background-color: #231E39;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
     color: #B3B8CD;
     text-align: center;
     overflow: hidden;
     border-radius: .5rem;
 }
 
-.image img{
- width: 100%;
+.image img {
+    width: 100%;
 }
 
 .card_info {
@@ -26,11 +24,11 @@
     padding: 0 1.5rem;
 }
 
-.card_vote{
+.card_vote {
     color: #9a02ac;
 }
 
-.total{
+.total {
     background-color: #9a02ac;
     padding: .5rem;
     border-radius: .2rem;
@@ -40,18 +38,18 @@
     text-transform: uppercase;
 }
 
-.card_vote p{
+.card_vote p {
     font-size: 1.5rem;
 }
 
-.card_button{
+.card_button {
     margin-bottom: 2rem;
     padding: .5rem;
 }
 
-.card_button button{
+.card_button button {
     background-color: #9a02ac;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
     border: none;
     outline: none;
     padding: .5rem 1rem;
@@ -62,12 +60,30 @@
     cursor: pointer;
 }
 
-@media screen  and (max-width: 35em){
-    .card{
+.card_remove_button {
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+
+.card_remove_button button {
+    background-color: #9a02ac;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 35em) {
+    .card {
         grid-template-columns: 1fr;
     }
 
-    .image{
+    .image {
         width: 400;
 
     }

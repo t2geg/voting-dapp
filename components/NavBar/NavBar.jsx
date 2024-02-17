@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillLock, AiFillUnlock } from "react-icons/ai";
@@ -9,7 +9,7 @@ import Style from "./NavBar.module.css";
 import loding from "../../loding.gif";
 
 const NavBar = () => {
-  const { connectWallet, error, currentAccount } = useContext(VotingContext);
+  const { connectWallet, error, currentAccount, checkIfWalletIsConnected } = useContext(VotingContext);
   const [openNav, setOpenNav] = useState(true);
 
   const openNaviagtion = () => {
@@ -19,6 +19,11 @@ const NavBar = () => {
       setOpenNav(true);
     }
   };
+
+  useEffect(() => {
+    checkIfWalletIsConnected();
+  }, []);
+
   return (
     <div className={Style.navbar}>
       {error === "" ? (

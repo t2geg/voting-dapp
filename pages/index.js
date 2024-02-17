@@ -19,8 +19,6 @@ const index = () => {
   } = useContext(VotingContext);
 
   useEffect(() => {
-    // getNewCandidate();
-    // console.log(candidateArray);/
     checkIfWalletIsConnected();
   }, []);
 

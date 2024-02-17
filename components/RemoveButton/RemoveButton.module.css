@@ -1,6 +1,5 @@
 .button {
     margin-block: 2rem;
-    background-color: transparent;
     border: 1px dotted #9a02ac;
     padding: .5rem 1rem;
     color: #9a02ac;
@@ -11,6 +10,6 @@
 }
 
 .button:hover {
-    background-color: #9a02ac;
+    background-color: red;
     color: #231E39;
 }
