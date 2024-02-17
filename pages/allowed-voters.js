@@ -162,7 +162,7 @@ const allowedVoters = () => {
           <Image src={images.creator} alt="user profile" />
           <p>Notice</p>
           <p>
-            Organizer <span>0xf39Fd6e51..</span>
+            Organizer <span>${process.env.NEXT_PUBLIC_ORGANISER}</span>
           </p>
           <p>
             Only organizer of the voting contract can create voter and candidate

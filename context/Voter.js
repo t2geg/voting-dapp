@@ -167,23 +167,30 @@ export const VotingProvider = ({ children }) => {
       const provider = new ethers.providers.Web3Provider(connection);
       const signer = provider.getSigner();
       const contract = fetchContract(signer);
-      //VOTR LIST
-      const voterListData = await contract.getVoterList();
-      setVoterAddress(voterListData);
 
-      voterListData.map(async (el) => {
-        const singleVoterData = await contract.getVoterData(el);
-        pushVoter.push(singleVoterData);
+      // Voter List
+      const voterListData = await contract.getVoterList();
+
+      // Fetch voter data for each voter address
+      const voterDataPromises = voterListData.map(async (voterAddress) => {
+        return await contract.getVoterData(voterAddress);
       });
 
-      //VOTER LENGHT
-      const voterList = await contract.getVoterLength();
-      setVoterLength(voterList.toNumber());
-      console.log(voterLength);
+      // Wait for all voter data to be fetched
+      const voterData = await Promise.all(voterDataPromises);
+
+      // Update voterArray state with fetched voter data
+      setVoterArray(voterData);
+
+      // Set voter length
+      setVoterLength(voterListData.length);
+
+      console.log(voterData);
     } catch (error) {
-      console.log("All data");
+      console.error("Error fetching voter data:", error);
     }
   };
+
 
   // =============================================
 
@@ -265,27 +272,33 @@ export const VotingProvider = ({ children }) => {
 
 
   const getNewCandidate = async () => {
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = fetchContract(signer);
+    try {
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
+      const contract = fetchContract(signer);
 
-    //---------ALL CANDIDATE
-    const allCandidate = await contract.getCandidate();
+      // Fetch all candidate data
+      const allCandidate = await contract.getCandidate();
 
-    //--------CANDIDATE DATA
-    allCandidate.map(async (el) => {
-      const singleCandidateData = await contract.getCandidateData(el);
+      // Create an array to store promises for fetching candidate data
+      const candidateDataPromises = allCandidate.map(async (el) => {
+        const singleCandidateData = await contract.getCandidateData(el);
+        return singleCandidateData;
+      });
 
-      pushCandidate.push(singleCandidateData);
-      candidateIndex.push(singleCandidateData[2].toNumber());
-    });
+      // Wait for all candidate data promises to resolve
+      const candidateData = await Promise.all(candidateDataPromises);
 
-    //---------CANDIDATE LENGTH
-    const allCandidateLength = await contract.getCandidateLength();
-    setCandidateLength(allCandidateLength.toNumber());
+      // Update state with candidate data and candidate length
+      setCandidateArray(candidateData);
+      setCandidateLength(candidateData.length);
+    } catch (error) {
+      console.error("Error fetching candidate data:", error);
+    }
   };
+
 
   console.log(error);
 

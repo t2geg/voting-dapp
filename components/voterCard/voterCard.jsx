@@ -1,9 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import Image from "next/image";
-
 import Style from "../card/card.module.css";
 import Button from "../Button/Button"
-import image from "../../candidate.png";
 import voterCardStyle from "./voterCard.module.css";
 import { VotingContext } from "../../context/Voter";
 import { organiserAddress } from "../../context/constants";
@@ -12,10 +9,6 @@ import { organiserAddress } from "../../context/constants";
 const voterCard = ({ voterArray }) => {
 
   const { remove_Voter, currentAccount, checkIfWalletIsConnected } = useContext(VotingContext);
-
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, [])
 
   const validate = (e, currentAccount) => {
     if (currentAccount === organiserAddress) {
