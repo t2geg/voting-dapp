@@ -133,7 +133,7 @@ const allowedVoters = () => {
 
           <div className={Style.Button}>
             <Button
-              btnName="Authorized Voter"
+              btnName="Authorize Voter"
               handleClick={() => createVoter(formInput, fileUrl, router)}
             />
           </div>
@@ -143,7 +143,7 @@ const allowedVoters = () => {
       <div className={Style.createdVorter}>
         <div className={Style.createdVorter__info}>
           <Image src={images.creator} alt="user profile" />
-          <p>Notice</p>
+          <h3>Notice</h3>
           <p>
             Organizer <span>${process.env.NEXT_PUBLIC_ORGANISER}</span>
           </p>

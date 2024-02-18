@@ -7,13 +7,13 @@
 }
 
 .card_box {
-    background-color: #231E39;
+    background-color: white;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
-    color: #B3B8CD;
     text-align: center;
     overflow: hidden;
     border-radius: .5rem;
 }
+
 
 .image img {
     width: 100%;
@@ -25,11 +25,12 @@
 }
 
 .card_vote {
-    color: #9a02ac;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .total {
-    background-color: #9a02ac;
+    background-color: #0096FF;
     padding: .5rem;
     border-radius: .2rem;
     font-weight: 900;
@@ -43,14 +44,14 @@
 }
 
 .card_button {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     padding: .5rem;
 }
 
 .card_button button {
-    background-color: #9a02ac;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
+    background-color: #0096FF;
     border: none;
+    margin-top: 10px;
     outline: none;
     padding: .5rem 1rem;
     font-size: 1rem;
@@ -60,23 +61,14 @@
     cursor: pointer;
 }
 
-.card_remove_button {
-    margin-bottom: 2rem;
-    padding: 0;
+.card_button :hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
 
-.card_remove_button button {
-    background-color: #9a02ac;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.35);
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #fff;
-    border-radius: .2rem;
-    cursor: pointer;
-}
+
+
 
 @media screen and (max-width: 35em) {
     .card {

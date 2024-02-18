@@ -65,6 +65,7 @@ const candidateRegisration = () => {
         {!fileUrl && (
           <div className={Style.sideInfo}>
             <div className={Style.sideInfo_box}>
+              <Image src={images.logo}></Image>
               <h4>Create Candidate For Voting</h4>
               <p>
                 Blockchain voting organisation, providing ETHEREUM blockchain ecosystem
@@ -141,7 +142,7 @@ const candidateRegisration = () => {
           <Input
             inputType="text"
             title="Age"
-            placeholder="Candidate Position"
+            placeholder="Candidate Age"
             handleClick={(e) =>
               setCandidateForm({ ...candidateForm, age: e.target.value })
             }
@@ -159,7 +160,7 @@ const candidateRegisration = () => {
       <div className={Style.createdVorter}>
         <div className={Style.createdVorter__info}>
           <Image src={images.creator} alt="user profile" />
-          <p>Notice</p>
+          <h3>Notice</h3>
           <p>
             Organizer <span>${process.env.NEXT_PUBLIC_ORGANISER}</span>
           </p>
