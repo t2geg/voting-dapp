@@ -66,6 +66,7 @@ const allowedVoters = () => {
         {!fileUrl && (
           <div className={Style.sideInfo}>
             <div className={Style.sideInfo_box}>
+              <Image src={images.logo}></Image>
               <h4>Create Voter For Voting</h4>
               <p>
                 Blockchain voting Organisation, providing ETHEREUM blockchain ecosystem
