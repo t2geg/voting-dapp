@@ -66,28 +66,11 @@ const allowedVoters = () => {
         {!fileUrl && (
           <div className={Style.sideInfo}>
             <div className={Style.sideInfo_box}>
-              <h4>Create Candidate For Voting</h4>
+              <Image src={images.logo}></Image>
+              <h4>Create Voter For Voting</h4>
               <p>
                 Blockchain voting Organisation, providing ETHEREUM blockchain ecosystem
               </p>
-              <p className={Style.sideInfo_para}>Contract Candidate List</p>
-            </div>
-            <div className={Style.car}>
-              {voterArray.map((el, i) => (
-                <div key={i + 1} className={Style.card_box}>
-                  <div className={Style.image}>
-                    <img src={el[4]} alt="Profile photo" />
-                  </div>
-
-                  <div className={Style.card_info}>
-                    <p>
-                      {el[1]} #{el[1].toNumber()}
-                    </p>
-                    <p>{el[0]}</p>
-                    <p>Address: {el[3].slice(0, 10)}..</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         )}
@@ -150,7 +133,7 @@ const allowedVoters = () => {
 
           <div className={Style.Button}>
             <Button
-              btnName="Authorized Voter"
+              btnName="Authorize Voter"
               handleClick={() => createVoter(formInput, fileUrl, router)}
             />
           </div>
@@ -160,7 +143,7 @@ const allowedVoters = () => {
       <div className={Style.createdVorter}>
         <div className={Style.createdVorter__info}>
           <Image src={images.creator} alt="user profile" />
-          <p>Notice</p>
+          <h3>Notice</h3>
           <p>
             Organizer <span>${process.env.NEXT_PUBLIC_ORGANISER}</span>
           </p>
