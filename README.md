@@ -9,7 +9,8 @@ Requirements to view :
 (how to add Polygon Mumbai to MetaMask, visit https://docs.polygon.technology/tools/wallets/metamask/add-polygon-network/#mumbai_1)
 
 Preview Video of D-App below:
+ 
+ 
 
 
-
-https://github.com/t2geg/voting-dapp/assets/87427147/38382e96-396f-42a1-a7f1-fc36e6853873
+https://github.com/t2geg/voting-dapp/assets/87427147/1cbf773e-d304-4ff4-9475-3556c9c83038
