@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Countdown from "react-countdown";
+import images from "../assets";
+import Image from "next/image";
 
 //INTERNAL IMPORT
 import { VotingContext } from "../context/Voter";
@@ -44,10 +46,11 @@ const index = () => {
             </small>
           </div>
         </div>
-      )}
+      )
+      }
 
       <Card candidateArray={candidateArray} giveVote={giveVote} />
-    </div>
+    </div >
   );
 };
 

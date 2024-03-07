@@ -49,20 +49,20 @@
 }
 
 .card_button button {
-    background-color: #0096FF;
+    background-color: #0096ff;
     border: none;
-    margin-top: 10px;
     outline: none;
+    margin-top: 10px;
     padding: .5rem 1rem;
     font-size: 1rem;
     font-weight: 500;
-    color: #fff;
+    color: white;
     border-radius: .2rem;
     cursor: pointer;
 }
 
 .card_button :hover {
-    color: rgba(255, 255, 255, 1);
+    color: white;
     box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
 }
 
