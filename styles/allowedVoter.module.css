@@ -123,6 +123,11 @@
     border-radius: .2rem;
 }
 
+.sideInfo_box img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
 .sideInfo_box .sideInfo_para {
     background-color: #ebf5ff;
     padding: .5rem;
@@ -156,6 +161,11 @@
     color: black;
     padding: 2rem;
 
+}
+
+.createdVorter__info img {
+    max-width: 365px;
+    max-height: 339px;
 }
 
 .voter_upload_two {
