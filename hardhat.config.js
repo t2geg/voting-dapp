@@ -6,7 +6,7 @@ require("@nomicfoundation/hardhat-toolbox");
 //POLYGON_MUMBAI_URL
 //METAMASK_ACCOUNT
 
-const URL = vars.get("POLYGON_MUMBAI_URL", "Error Fetching url");
+const URL = vars.get("POLYGON_AMOY_URL", "Error Fetching url");
 const account_secret = vars.get("METAMASK_ACCOUNT", "Error Fetching Account");
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    polygon_mumbai: {
+    polygon_amoy: {
       url: URL,
       accounts: [
         `0x${account_secret}`,

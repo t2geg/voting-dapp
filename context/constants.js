@@ -2,6 +2,6 @@
 
 import voting from "./Create.json";
 
-export const VotingAddress = '0x5C952567439A46a160050A19A77aBd67EDDad084';
+export const VotingAddress = '0xdD96b22bCDb8226DE95aDD9e8B93c9977b94C77E';
 export const VotingAddressABI = voting.abi;
 export const organiserAddress = (process.env.NEXT_PUBLIC_ORGANISER).toLowerCase();
