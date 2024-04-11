@@ -37,31 +37,36 @@ const index = () => {
           </title>
         </Head>
       </div>
+
       <div className={Style.homepage1}>
-        <div className={Style.text1}>
-          <Typography variant="h3" align="center" fontWeight={"Bold"}>
-            Vote as per convenience with our
-          </Typography>
+        {currentAccount && (
+          <div className={Style.text1}>
+            <Typography variant="h3" align="center" fontWeight={"Bold"}>
+              Vote as per convenience with our
+            </Typography>
 
-          <Typography variant="h3" align="center" color={"#0096FF"} fontWeight={"Bold"}>
-            Decentralised Voting App
-          </Typography> <br></br>
-          <Typography variant="subtitle1" align="center" style={{
-            marginTop: 20,
-            marginBottom: 30,
-          }}>
-            Our decentralized voting app puts the power of democracy in your hands.
-            Say goodbye to concerns about fraud and manipulation—our blockchain-based platform ensures the integrity of every vote. Easy to use and highly secure, our app enables you to participate in elections from anywhere. Join us in shaping the future of governance.
-          </Typography>
-          <Button variant="contained" color="primary" style={{
-            margin: " 0 auto",
-            display: "flex",
-          }}>
-            Get Started
-          </Button>
-        </div>
+            <Typography variant="h3" align="center" color={"#0096FF"} fontWeight={"Bold"}>
+              Decentralised Voting App
+            </Typography> <br></br>
+            <Typography variant="subtitle1" align="center" style={{
+              marginTop: 20,
+              marginBottom: 30,
+            }}>
+              Our decentralized voting app puts the power of democracy in your hands.
+              Say goodbye to concerns about fraud and manipulation. Our blockchain-based platform ensures the integrity of every vote. Easy to use and highly secure, our app enables you to participate in elections from anywhere. Join us in shaping the future of governance.
+            </Typography>
+            <Button variant="contained" color="primary" style={{
+              margin: " 0 auto",
+              display: "flex",
+            }}>
+              Get Started
+            </Button>
+          </div>
 
 
+        )
+
+        }
       </div >
 
       <div className={Style.home}>
