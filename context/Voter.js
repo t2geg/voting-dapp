@@ -113,25 +113,27 @@ export const VotingProvider = ({ children }) => {
   //CREATE VOTER----------------------
   const createVoter = async (formInput, fileUrl) => {
     const { name, address, position } = formInput;
+    if (!fileUrl || !name || !address || !position) {
+      if (!fileUrl) setError("Please upload the image");
+      else setError("Please enter all the details");
+    }
+    else {
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
+      const contract = fetchContract(signer);
 
-    if (!name || !address || !position)
-      return console.log("Input Data is missing");
+      const data = JSON.stringify({ name, address, position, image: fileUrl });
+      const added = await client.add(data);
 
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = fetchContract(signer);
+      const url = `${subdomain}/ipfs/${added.path}`;
 
-    const data = JSON.stringify({ name, address, position, image: fileUrl });
-    const added = await client.add(data);
+      const voter = await contract.voterRight(address, name, url, fileUrl);
+      voter.wait();
 
-    const url = `${subdomain}/ipfs/${added.path}`;
-
-    const voter = await contract.voterRight(address, name, url, fileUrl);
-    voter.wait();
-
-    router.push("/voterList");
+      router.push("/voterList");
+    }
   };
   // =============================================
 
@@ -218,34 +220,39 @@ export const VotingProvider = ({ children }) => {
   const setCandidate = async (candidateForm, fileUrl, router) => {
     const { name, address, age } = candidateForm;
 
-    if (!name || !address || !age) return console.log("Input Data is missing");
+    if (!fileUrl || !name || !address || !position) {
+      if (!fileUrl) setError("Please upload the image");
+      else setError("Please enter all the details");
+    }
 
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    const signer = provider.getSigner();
-    const contract = fetchContract(signer);
+    else {
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      const signer = provider.getSigner();
+      const contract = fetchContract(signer);
 
-    const data = JSON.stringify({
-      name,
-      address,
-      image: fileUrl,
-      age,
-    });
-    const added = await client.add(data);
+      const data = JSON.stringify({
+        name,
+        address,
+        image: fileUrl,
+        age,
+      });
+      const added = await client.add(data);
 
-    const ipfs = `${subdomain}/ipfs/${added.path}`;
+      const ipfs = `${subdomain}/ipfs/${added.path}`;
 
-    const candidate = await contract.setCandidate(
-      address,
-      age,
-      name,
-      fileUrl,
-      ipfs
-    );
-    candidate.wait();
+      const candidate = await contract.setCandidate(
+        address,
+        age,
+        name,
+        fileUrl,
+        ipfs
+      );
+      candidate.wait();
 
-    router.push("/");
+      router.push("/");
+    }
   };
 
   const remove_Candidate = async (address) => {
