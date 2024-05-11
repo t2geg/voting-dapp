@@ -9,7 +9,6 @@ require('dotenv').config();
 //INTERNAL IMPORT
 import { VotingAddress, VotingAddressABI } from "./constants";
 
-// const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
 const projectSecretKey = process.env.NEXT_PUBLIC_SECRET_KEY;
@@ -220,7 +219,7 @@ export const VotingProvider = ({ children }) => {
   const setCandidate = async (candidateForm, fileUrl, router) => {
     const { name, address, age } = candidateForm;
 
-    if (!fileUrl || !name || !address || !position) {
+    if (!fileUrl || !name || !address || !age) {
       if (!fileUrl) setError("Please upload the image");
       else setError("Please enter all the details");
     }
